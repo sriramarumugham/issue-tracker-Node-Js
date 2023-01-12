@@ -6,6 +6,13 @@ const db = require("./config/mongoose");
 
 const app = express();
 
+const expressLayouts = require("express-ejs-layouts");
+//express layouts
+app.use(expressLayouts);
+//view engine
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/", require("./routes"));
