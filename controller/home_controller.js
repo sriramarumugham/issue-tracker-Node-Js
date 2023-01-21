@@ -19,6 +19,24 @@ try {
     return res.render("detail");
   };
 
+  module.exports.create_project = async function (req, res) {
+    Project.create(
+      {
+        name: req.body.name,
+        description: req.body.description,
+        author: req.body.author,
+      },
+      function (err, newProject) {
+        if (err) {
+          console.log("error in creating a project", err);
+          return;
+        }
+        console.log("Contact project", newProject);
+        return res.redirect("/");
+      }
+    );
+  };
+
   module.exports.create_issue = async function (req, res) {
     return res.render("create_issue");
   };

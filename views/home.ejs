@@ -5,12 +5,11 @@
     <% for ( i of projects){%>
     <li>
       <div class="input-container">
-        <input name="id" value="<%= i._id %>" type="checkbox" />
+        <p><%= i._id %></p>
       </div>
       <div class="data-container">
         <h3><%= i.name%></h3>
-        <span class="date-container"
-          >
+        <span class="date-container">
           <i class="fa-solid fa-calendar-days"></i>
           <p><%= i.description%></p></span
         >
