@@ -1,10 +1,38 @@
 <h1>Create issue page</h1>
-<ul>
-  <li>Title</li>
-  <li>Description</li>
-  <li>
-    Labels (multiple labels can be added to a project, IF a project has a label
-    already show it (in dropdown) as the user types the label in)
-  </li>
-  <li>Author</li>
-</ul>
+
+<form > 
+  <label for="title">Title</label>
+
+  <input id="title" name="title" type="text" required />
+
+  <label for="description">Description</label>
+
+  <input id="description" name="description" type="text" required />
+
+  <label for="author">Author</label>
+
+  <input id="author" name="author" type="text" required />
+
+  <label for="label">Label</label>
+
+  <select
+    multiple
+    multiselect-search="true"
+    name="select"
+    style="width: 300px"
+    id="label"
+    required
+  >
+    <option value="bug">Bug</option>
+    <option value="documentation">Documentation</option>
+    <option value="duplicate">Duplicate</option>
+    <option value="enhancement">Enhancement</option>
+    <option value="good first issue">Good first issue</option>
+    <option value="help wanted">Help wanted</option>
+    <option value="invalid">Invalid</option>
+    <option value="question">Question</option>
+    <option value="wontfix">Wontfix</option>
+  </select>
+
+  <button type="submit">Create Issue</button>
+</form>
