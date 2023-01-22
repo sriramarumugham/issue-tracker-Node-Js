@@ -15,10 +15,6 @@ try {
     return res.render("new_project");
   };
 
-  module.exports.detail = async function (req, res) {
-    return res.render("detail");
-  };
-
   module.exports.create_project = async function (req, res) {
     Project.create(
       {
@@ -39,6 +35,19 @@ try {
 
   module.exports.create_issue = async function (req, res) {
     return res.render("create_issue");
+  };
+
+  module.exports.get_detail = async function (req, res) {
+    const { id } = req.params;
+    Project.findById(id, function (err, projects) {
+      if (err) {
+        console.log("error in finding by id of a project", err);
+        return;
+      }
+      console.log(projects);
+
+      return res.render("detail", { projects: projects });
+    });
   };
 } catch (err) {
   console.log("err", err);

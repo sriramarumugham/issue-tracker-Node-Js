@@ -5,7 +5,7 @@
     <% for ( i of projects){%>
     <li>
       <div class="input-container">
-        <p><%= i._id %></p>
+        <a href="<%= `/detail/${i._id}` %>" ><%= i._id %></a>
       </div>
       <div class="data-container">
         <h3><%= i.name%></h3>

@@ -1,12 +1,26 @@
 <h1>Project Detail Page</h1>
-<p>List of bugs on the project</p>
-<h3>Filter</h3>
-<ul>
-  <li>Filter by label</li>
-  <li>Filter by author name</li>
-  <li>Search by title and description</li>
-</ul>
-<button>Creat a issue</button>
 
-Create issue page
-<a href="/create-issue">Create issue page</a>
+<ul>
+  <li><%= projects._id %></li>
+  <li><%= projects.name %></li>
+  <li><%= projects.description %></li>
+  <li><%= projects.author %></li>
+</ul>
+
+<form action= "<%= `/create-issue/${i._id}` %>">
+ 
+<button >Creat a issue</button>
+</form>
+
+</br>
+
+<button>Filter</button>
+
+<h4>List of bugs on the project</h4>
+<ul>
+  <li>ISSUES</li>
+  <li>ISSUES</li>
+  <li>ISSUES</li>
+  <li>ISSUES</li>
+</ul>
+
