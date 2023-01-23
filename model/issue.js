@@ -17,10 +17,11 @@ const IssueSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  lebel: {
+  lebel: [{
     type: String,
     required: true,
-  },
+  }
+  ],
 });
 
 const Issue = mongoose.model("Issue", IssueSchema);

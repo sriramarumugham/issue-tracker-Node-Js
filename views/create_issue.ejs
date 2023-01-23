@@ -1,24 +1,26 @@
 <h1>Create issue page</h1>
 
-<form > 
+<form action="<%= `${nav}` %>" method="post">
+  
+
   <label for="title">Title</label>
 
   <input id="title" name="title" type="text" required />
 
   <label for="description">Description</label>
 
-  <input id="description" name="description" type="text" required />
+  <input id="description" name="issueDescription" type="text" required />
 
   <label for="author">Author</label>
 
-  <input id="author" name="author" type="text" required />
+  <input id="author" name="issueAuthor" type="text" required />
 
   <label for="label">Label</label>
 
   <select
     multiple
     multiselect-search="true"
-    name="select"
+    name="label"
     style="width: 300px"
     id="label"
     required

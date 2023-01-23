@@ -1,5 +1,5 @@
 const Project = require("../model/project");
-
+const Issue=require('../model/issue');
 try {
   module.exports.home = async function (req, res) {
     Project.find({}, function (err, projects) {
@@ -34,8 +34,31 @@ try {
   };
 
   module.exports.create_issue = async function (req, res) {
-    return res.render("create_issue");
+    return res.render("create_issue" , {nav: req.url});
   };
+
+  module.exports.create_bug = async function (req, res) {
+
+    const id = req.params.id 
+    trimmed_id = id.trim()
+    Issue.create({
+      project:trimmed_id,
+      title:req.body.title,
+      issueDescription:req.body.issueDescription,
+      issueAuthor:req.body.issueAuthor,
+      label:req.body.label
+    }, function(err , newIssue){
+      if(err){
+        console.log("Couldnt create an issue" , err);
+        return;
+      }
+      console.log(newIssue);
+      res.redirect(`/detail/${trimmed_id}`)
+    })
+    console.log(req.body , req.params)
+  };
+
+  
 
   module.exports.get_detail = async function (req, res) {
     const { id } = req.params;
@@ -49,6 +72,7 @@ try {
       return res.render("detail", { projects: projects });
     });
   };
+
 } catch (err) {
   console.log("err", err);
   return;
