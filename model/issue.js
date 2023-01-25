@@ -17,9 +17,8 @@ const IssueSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  lebel: [{
+  label: [{
     type: String,
-    required: true,
   }
   ],
 });

@@ -17,10 +17,21 @@
 <button>Filter</button>
 
 <h4>List of bugs on the project</h4>
-<ul>
-  <li>ISSUES</li>
-  <li>ISSUES</li>
-  <li>ISSUES</li>
-  <li>ISSUES</li>
-</ul>
 
+
+<!-- issues.map(issue){
+  return issue.title
+} -->
+
+<ul>
+  <% for (issue of issues) { %>
+    <li> <%= issue._id %> </li>
+    <li> <%= issue.title %> </li>
+    <li> <%= issue.issueDescription %> </li>
+    <li> <%= issue.issueAuthor %> </li>
+   
+    <% for (labels of issue.label) { %>
+    <li>  <%= labels %> </li>
+    <% } %>
+  <% } %>
+</ul>

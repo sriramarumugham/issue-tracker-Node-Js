@@ -13,7 +13,11 @@ const ProjectSchema=new mongoose.Schema({
     author:{
         type:String,
         required:true
-    }
+    },
+    issue:[{
+        type: mongoose.Schema.Types.ObjectId,
+         ref: "Issue",
+    }]
 })
 
 const Project=mongoose.model("Project" , ProjectSchema);

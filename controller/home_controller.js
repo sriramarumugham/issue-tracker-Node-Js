@@ -40,8 +40,10 @@ try {
   module.exports.create_bug = async function (req, res) {
 
     const id = req.params.id 
-    trimmed_id = id.trim()
-    Issue.create({
+    trimmed_id = id.trim();
+    console.log(req.body.label);
+
+     Issue.create({
       project:trimmed_id,
       title:req.body.title,
       issueDescription:req.body.issueDescription,
@@ -51,26 +53,53 @@ try {
       if(err){
         console.log("Couldnt create an issue" , err);
         return;
+       
       }
-      console.log(newIssue);
+      // console.log(newIssue);
+      // Issue.label.push(req.body.label);
+      // Issue.save();
       res.redirect(`/detail/${trimmed_id}`)
     })
-    console.log(req.body , req.params)
+    
+    
+  
+  
+    // console.log(req.body , req.params)
   };
 
   
 
   module.exports.get_detail = async function (req, res) {
-    const { id } = req.params;
-    Project.findById(id, function (err, projects) {
+    const id = req.params.id;
+    trimmed_id = id.trim();
+
+   
+
+    Project.findById(trimmed_id, function (err, projects) {
       if (err) {
         console.log("error in finding by id of a project", err);
         return;
       }
-      console.log(projects);
+      else{
+        // console.log(projects);
 
-      return res.render("detail", { projects: projects });
+        Issue.find( {project:trimmed_id}, function(err, issues){
+          if (err) {
+            console.log("error in finding by id of a issue", err);
+            return;
+          }
+          else{
+            // console.log("issues" , issues);
+            return res.render("detail", { projects: projects  , issues:issues});
+          }
+       
+        } )
+      }
+      
     });
+
+    
+    
   };
 
 } catch (err) {
