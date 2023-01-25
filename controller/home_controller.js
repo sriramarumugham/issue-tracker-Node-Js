@@ -43,6 +43,8 @@ try {
     trimmed_id = id.trim();
     console.log(req.body.label);
 
+   
+
      Issue.create({
       project:trimmed_id,
       title:req.body.title,
@@ -58,11 +60,24 @@ try {
       // console.log(newIssue);
       // Issue.label.push(req.body.label);
       // Issue.save();
+
+
+      Project.findById(trimmed_id , function(err , project){
+        if(err){
+  console.log("Couldnt find the porject with id", err);
+  return;
+        }
+        project.issue.push(newIssue);
+        project.save();
+      })
+    
+      
       res.redirect(`/detail/${trimmed_id}`)
     })
+
     
-    
-  
+
+
   
     // console.log(req.body , req.params)
   };
