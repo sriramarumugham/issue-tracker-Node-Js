@@ -12,9 +12,6 @@ try {
       return res.render("home", { projects: projects });
     });
   };
-
- 
- 
 } catch (err) {
   console.log("err", err);
   return;

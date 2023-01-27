@@ -1,3 +1,89 @@
 body{
-    background-color: aqua;
+    background-color:black ;
+    color: rgb(173, 186, 199);
+    font-size:medium;
+    margin: auto;
+    padding:20px;
+    max-width: 600px;
+    box-shadow: 10px 10px rgb(173, 186, 199);
+    box-shadow: inset;
+}
+.list-session>ul{
+    list-style-type: none;
+    border: 1px solid rgb(173, 186, 199);
+    border-radius: 10px;
+    padding: 10px;
+}
+.list-session>ul>li{
+    padding: 10px;
+    border-bottom: 1px solid white;
+    margin: 0px;
+}
+.buttons{
+    border: 1px solid rgb(173, 186, 199);
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+    background-color: rgb(173, 186, 199);
+}
+
+/* details page */
+.forms{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid  rgb(173, 186, 199);
+    padding: 10px;
+    border-radius: 10px;
+    gap:10px;
+}
+.inputs{
+    border: 1px solid rgb(173, 186, 199);
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+    background-color: rgb(173, 186, 199);
+}
+.labels{
+font-size: larger;
+font-weight: 500;
+color:rgb(173, 186, 199);
+}
+.bugsLabel{
+    border: 1px solid purple;
+    border-radius: 10px;
+    padding: 5px;
+    color: rgba(255, 0, 0, 0.765);
+    background-color: rgb(50, 48, 48);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin: 10px;
+    list-style: none;
+    width: 100px;
+}
+.issue_lists{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    text-decoration: none;
+    margin-left: -50px;
+}
+.title{
+    color: rgb(42, 42, 193);
+}
+.description{
+   color:rgb(123, 123, 244);
+}
+.author{
+    color: white;
+}
+.bug_title{
+    color:aqua
+}
+.bug_description{
+    color: aquamarine;
+}
+.bug_author{
+    color: wheat;
 }

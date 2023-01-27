@@ -1,23 +1,22 @@
-<h1>Home Page</h1>
-<p>List of projects</p>
+<h1>Your Repositary</h1>
+
+<a href="/project/create-project"><button class="buttons">New Project</button> </a>
+
 <div class="list-session">
   <ul>
     <% for ( i of projects){%>
     <li>
       <div class="data-container">
-        <a href="<%= `/project/detail/${i._id}` %>"><%= i.name%></a>
-        <span class="date-container">
-          <i class="fa-solid fa-calendar-days"></i>
+        <a href="<%= `/project/detail/${i._id}` %>" class="title"><h1><%= i.name%></h1></a>
+        <span class="date-container description">
           <p><%= i.description%></p></span
         >
       </div>
       <div class="catogery-container">
-        <div class="catogery <%= i.category%>"><%= i.author %></div>
+        <div class="catogery <%= i.category%> author"><%= i.author %></div>
       </div>
     </li>
     <% }%>
   </ul>
 </div>
-
-<a href="/project/create-project"> create project page</a>
 

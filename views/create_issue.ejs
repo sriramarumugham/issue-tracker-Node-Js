@@ -1,20 +1,19 @@
 <h1>Create issue page</h1>
 
-<form action="<%= `/issue${nav}` %>" method="post">
-  
-  <label for="title">Title</label>
+<form action="<%= `/issue${nav}` %>" method="post" class="forms">
+  <label for="title" class="labels">Title</label>
 
-  <input id="title" name="title" type="text" required />
+  <input id="title" name="title" type="text" required  class="inputs"/>
 
-  <label for="description">Description</label>
+  <label for="description" class="labels">Description</label>
 
-  <input id="description" name="issueDescription" type="text" required />
+  <input id="description" name="issueDescription" type="text" required class="inputs" />
 
-  <label for="author">Author</label>
+  <label for="author" class="labels">Author</label>
 
-  <input id="author" name="issueAuthor" type="text" required />
+  <input id="author" name="issueAuthor" type="text" required class="inputs" />
 
-  <label for="label">Label</label>
+  <label for="label" class="labels">Label</label>
 
   <select
     multiple
@@ -35,8 +34,7 @@
     <option value="wontfix">Wontfix</option>
   </select>
 
-  <button type="submit">Create Issue</button>
+  <button  class="buttons" type="submit">Create Issue</button>
 
-<script src="/js/multipleSelect.js"></script>
-
+  <script src="/js/multipleSelect.js"></script>
 </form>

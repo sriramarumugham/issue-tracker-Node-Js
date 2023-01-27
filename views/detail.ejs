@@ -1,42 +1,38 @@
-<h1>Project Detail Page</h1>
-
-<ul >
-  <li>Name: <%= projects.name %></li>
-  <li>Description: <%= projects.description %></li>
-  <li>Author: <%= projects.author %></li>
-</ul>
+<h1 class="title"><%= projects.name %></h1>
+  <p class="description"> -<%= projects.description %></p>
+  <h3 class="author">-<%= projects.author %></h3>
 
 <form action= "<%= `/issue/create-issue/${projects._id}` %>">
  
-<button >Creat a issue</button>
+<button  class="buttons">Creat a issue</button>
 
-<h4>List of bugs on the project</h4>
  
 </form>
 
 </br>
 
-<form action="#" method="POST" id="searchIssues">
+<form action="#" method="POST" id="searchIssues" class="forms">
 
-<label for="title">Title</label>
-<input name="title" id="title"  placeholder="Search by title"/>
+<label for="title" class="labels">Title</label>
+<input name="title" id="title"  placeholder="Search by title" class="inputs"/>
 
-<label for="description">Description</label>
-<input name="description" id="description" placeholder="Search by description"/>
+<label for="description" class="labels">Description</label>
+<input name="description" id="description" placeholder="Search by description" class="inputs"/>
 
 
-<label for="author">Author</label>
-<input name="author" id="author" placeholder="Search by Author"/>
+<label for="author" class="labels">Author</label>
+<input name="author" id="author" placeholder="Search by Author" class="inputs"/>
 
-<label for="label">Label</label>
+<label for="label" class="labels">Label</label>
 
 <select
     multiple
     multiselect-search="true"
     name="label"
-    style="width: 300px"
+    style="display: flex;"
     id="label"
     required
+    class="inputs"
   >
     <option value="bug">Bug</option>
     <option value="documentation">Documentation</option>
@@ -51,23 +47,25 @@
 
   
 
-<button id="search_filter">Filter</button>
+<button id="search_filter" class="buttons">Filter</button>
   
 </form>
-<ul class="issue_list">
+<div class="list-session">
+<ul>
   <% for (issue of issues) { %>
 <li class="issue_detail">
-    <p class="issue_title"><%= issue.title %>  </p>   
-    <p class="issue_description"><%= issue.issueDescription %>  </p>   
-    <p class="issue_author"><%= issue.issueAuthor %> </p>
-    <ul>
-    <% for (labels of issue.label) { %>
-    <li class="issue_label"><%= labels %></li>
-    <% } %>
-  </ul>
+    <h2 class="issue_title bug_title"><%= issue.title %>  </h2>   
+    <ul class="issue_lists">
+      <% for (labels of issue.label) { %>
+      <li class="issue_label bugsLabel"><%= labels %></li>
+      <% } %>
+    </ul>
+    <p class="issue_description bug_description"><%= issue.issueDescription %>  </p>   
+    <p class="issue_author bug_author"> -<%= issue.issueAuthor %> </p>
+  
 </li>
   <% } %>
 </ul>
-
+</div>
 <script src="/js/multipleSelect.js"></script>
 <script src="/js/searchFilter.js" ></script>
