@@ -55,7 +55,6 @@ try {
       if(err){
         console.log("Couldnt create an issue" , err);
         return;
-       
       }
       // console.log(newIssue);
       // Issue.label.push(req.body.label);

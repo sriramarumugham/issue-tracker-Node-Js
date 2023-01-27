@@ -1,6 +1,6 @@
 <h1>Project Detail Page</h1>
 
-<ul>
+<ul >
   <li><%= projects._id %></li>
   <li><%= projects.name %></li>
   <li><%= projects.description %></li>
@@ -10,23 +10,65 @@
 <form action= "<%= `/create-issue/${projects._id}` %>">
  
 <button >Creat a issue</button>
+
+<h4>List of bugs on the project</h4>
+ 
+
 </form>
 
 </br>
 
-<button>Filter</button>
+<form action="#" method="POST" id="searchIssues">
 
-<h4>List of bugs on the project</h4>
+<label for="title">Title</label>
+<input name="title" id="title"  placeholder="Search by title"/>
 
-<ul>
+<label for="description">Description</label>
+<input name="description" id="description" placeholder="Search by description"/>
+
+
+<label for="author">Author</label>
+<input name="author" id="author" placeholder="Search by Author"/>
+
+<label for="label">Label</label>
+
+<select
+    multiple
+    multiselect-search="true"
+    name="label"
+    style="width: 300px"
+    id="label"
+    required
+  >
+    <option value="bug">Bug</option>
+    <option value="documentation">Documentation</option>
+    <option value="duplicate">Duplicate</option>
+    <option value="enhancement">Enhancement</option>
+    <option value="good first issue">Good first issue</option>
+    <option value="help wanted">Help wanted</option>
+    <option value="invalid">Invalid</option>
+    <option value="question">Question</option>
+    <option value="wontfix">Wontfix</option>
+  </select>
+
+  
+
+<button id="search_filter">Filter</button>
+  
+</form>
+<ul class="issue_list">
   <% for (issue of issues) { %>
-    <li> <%= issue._id %> </li>
-    <li> <%= issue.title %> </li>
-    <li> <%= issue.issueDescription %> </li>
-    <li> <%= issue.issueAuthor %> </li>
+<li class="issue_detail">
+    <p > <%= issue._id %> </p>  
+    <p class="issue_title"><%= issue.title %>  </p>   
+    <p class="issue_description"><%= issue.issueDescription %>  </p>   
+    <p class="issue_author"><%= issue.issueAuthor %> </p>
+    <ul>
     <% for (labels of issue.label) { %>
-    <li>  <%= labels %> </li>
+    <li class="issue_label">  <%= labels %> </li>
     <% } %>
-    </br>
+  </ul>
+</li>
   <% } %>
 </ul>
+
