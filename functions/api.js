@@ -1,14 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const dotenv=require ('dotenv');
-dotenv.config({
-  path:"./data/config.env"
-})
+const serverless=require('serverless-http');
 
+const router=express.Router();
 const PORT = 8000;
 
-const db = require("./config/mongoose");
+const db = require("../config/mongoose");
 
 const app = express();
 
@@ -33,10 +31,14 @@ app.set("views", "./views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", require("./routes"));
+app.use("/", require("../routes"));
 
-app.listen( process.env.PORT, function (err) {
-  if (!err) {
-    console.log(`express app running on port, ${process.env.PORT}`);
-  }
-});
+app.use('/.netlify/functions/api' , router);
+
+// app.listen( PORT, function (err) {
+//   if (!err) {
+//     console.log(`express app running on port, ${PORT}`);
+//   }
+// });
+
+module.exports.handler=serverless(app);

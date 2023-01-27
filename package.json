@@ -2,11 +2,9 @@
   "name": "issue-tracker",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
-    "dev":"nodemon index.js"
+    "build":"netlify deploy --prod"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +15,10 @@
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
     "mongoose": "^6.8.3",
-    "nodemon": "^2.0.20"
+    "netlify-cli": "^12.10.0",
+    "netlify-lambda": "^2.0.15",
+    "nodemon": "^2.0.20",
+    "serverless-http": "^3.1.1",
+    "win-node-env": "^0.6.1"
   }
 }
