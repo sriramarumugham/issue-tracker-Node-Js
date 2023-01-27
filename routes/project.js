@@ -3,11 +3,13 @@ const express = require("express");
 const router = express.Router();
 
 const home_controller = require("../controller/home_controller");
+const project_controller=require('../controller/project_controller');
 
-router.get("/create-project", home_controller.newProject);
 
-router.post("/create-project", home_controller.create_project);
+router.get("/create-project", project_controller.newProject);
 
-router.get("/detail/:id", home_controller.get_detail);
+router.post("/create-project", project_controller.create_project);
+
+router.get("/detail/:id", project_controller.get_detail);
 
 module.exports = router;

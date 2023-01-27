@@ -1,8 +1,7 @@
 <h1>Create issue page</h1>
 
-<form action="<%= `${nav}` %>" method="post">
+<form action="<%= `/issue${nav}` %>" method="post">
   
-
   <label for="title">Title</label>
 
   <input id="title" name="title" type="text" required />
@@ -37,4 +36,7 @@
   </select>
 
   <button type="submit">Create Issue</button>
+
+<script src="/js/multipleSelect.js"></script>
+
 </form>
