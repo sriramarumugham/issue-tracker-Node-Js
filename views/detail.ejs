@@ -1,13 +1,12 @@
 <h1>Project Detail Page</h1>
 
 <ul >
-  <li><%= projects._id %></li>
-  <li><%= projects.name %></li>
-  <li><%= projects.description %></li>
-  <li><%= projects.author %></li>
+  <li>Name: <%= projects.name %></li>
+  <li>Description: <%= projects.description %></li>
+  <li>Author: <%= projects.author %></li>
 </ul>
 
-<form action= "<%= `/create-issue/${projects._id}` %>">
+<form action= "<%= `/issue/create-issue/${projects._id}` %>">
  
 <button >Creat a issue</button>
 
@@ -58,7 +57,6 @@
 <ul class="issue_list">
   <% for (issue of issues) { %>
 <li class="issue_detail">
-    <p > <%= issue._id %> </p>  
     <p class="issue_title"><%= issue.title %>  </p>   
     <p class="issue_description"><%= issue.issueDescription %>  </p>   
     <p class="issue_author"><%= issue.issueAuthor %> </p>
