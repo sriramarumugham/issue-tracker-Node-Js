@@ -251,11 +251,27 @@
     const issueLabel=[];
      for(let i =0 ; i<label.options.length ;i++){
       if(label.options[i].selected===true){
-        // console.log(label.options[i].value);
         issueLabel.push(label.options[i].value);
       }
      }
-    console.log("Hey" , title , description , author  ,issueLabel);
+    // console.log( title , description , author  ,issueLabel);
+    const issueDetails=document.getElementsByClassName('issue_detail');
+    for(let j=0 ;j<issueDetails.length;j++){
+      
+      console.log(issueDetails[j].getElementsByClassName("issue_title")[0].innerHTML.toLowerCase() , title.toLowerCase());
+
+      if (issueDetails[j].getElementsByClassName("issue_title")[0].innerHTML.toLowerCase().indexOf(title.toLowerCase()) > -1) {
+        issueDetails[j].style.display = "";
+        } else {
+          issueDetails[j].style.display = "none";
+        }
+
+      console.log(issueDetails[j].getElementsByClassName("issue_description")[0].innerHTML.toLowerCase() ,  description.toLowerCase());
+      console.log(issueDetails[j].getElementsByClassName("issue_author")[0].innerHTML.toLowerCase() ,  author.toLowerCase());
+      // console.log(issueDetails[j].getElementsByClassName("issue_title")[0].innerHTML===title);
+
+    }
+
   })
 </script>
 </html>
