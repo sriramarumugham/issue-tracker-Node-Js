@@ -258,16 +258,36 @@
     const issueDetails=document.getElementsByClassName('issue_detail');
     for(let j=0 ;j<issueDetails.length;j++){
       
+      issueDetails[j].style.display = "";
+
       console.log(issueDetails[j].getElementsByClassName("issue_title")[0].innerHTML.toLowerCase() , title.toLowerCase());
 
+     if(title.length>0){
       if (issueDetails[j].getElementsByClassName("issue_title")[0].innerHTML.toLowerCase().indexOf(title.toLowerCase()) > -1) {
         issueDetails[j].style.display = "";
         } else {
           issueDetails[j].style.display = "none";
         }
+     }
 
       console.log(issueDetails[j].getElementsByClassName("issue_description")[0].innerHTML.toLowerCase() ,  description.toLowerCase());
+      
+     if(description.length>0){
+      if (issueDetails[j].getElementsByClassName("issue_description")[0].innerHTML.toLowerCase().indexOf(description.toLowerCase()) > -1) {
+        issueDetails[j].style.display = "";
+        } else {
+          issueDetails[j].style.display = "none";
+        }
+     }
       console.log(issueDetails[j].getElementsByClassName("issue_author")[0].innerHTML.toLowerCase() ,  author.toLowerCase());
+      
+      if(author.length>0){
+        if (issueDetails[j].getElementsByClassName("issue_author")[0].innerHTML.toLowerCase().indexOf(author.toLowerCase()) > -1) {
+        issueDetails[j].style.display = "";
+        } else {
+          issueDetails[j].style.display = "none";
+        }
+      }
       // console.log(issueDetails[j].getElementsByClassName("issue_title")[0].innerHTML===title);
 
     }
