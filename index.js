@@ -1,5 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+
+const dotenv=require ('dotenv');
+dotenv.config({
+  path:"./data/config.env"
+})
+
 const PORT = 8000;
 
 const db = require("./config/mongoose");
@@ -29,8 +35,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/", require("./routes"));
 
-app.listen(PORT, function (err) {
+app.listen( process.env.PORT, function (err) {
   if (!err) {
-    console.log(`express app running on port, ${PORT}`);
+    console.log(`express app running on port, ${process.env.PORT}`);
   }
 });
