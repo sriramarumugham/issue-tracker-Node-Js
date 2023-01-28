@@ -1,4 +1,8 @@
 const express = require("express");
+
+// production
+const router =express.Router();
+
 const bodyParser = require("body-parser");
 
 const serverless=require('serverless-http');
@@ -30,6 +34,8 @@ app.set("views", "../views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use('/.netlify/functions/api' , router);
+
 app.use("/", require("../routes"));
 
 
@@ -38,5 +44,5 @@ app.use("/", require("../routes"));
 //     console.log(`express app running on port, ${PORT}`);
 //   }
 // });
-
+module.exports=app;
 module.exports.handler=serverless(app);
