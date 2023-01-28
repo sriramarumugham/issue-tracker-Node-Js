@@ -3,7 +3,6 @@ const bodyParser = require("body-parser");
 
 const serverless=require('serverless-http');
 
-const router=express.Router();
 const PORT = 8000;
 
 const db = require("../config/mongoose");
@@ -27,13 +26,12 @@ app.set("layout extractScripts", true);
 //view engine
 app.set("view engine", "ejs");
 
-app.set("views", "./views");
+app.set("views", "../views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/", require("../routes"));
 
-app.use('/.netlify/functions/api' , router);
 
 // app.listen( PORT, function (err) {
 //   if (!err) {
