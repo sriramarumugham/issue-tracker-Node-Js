@@ -2,7 +2,7 @@
   "name": "issue-tracker",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/api.js",
+  "main": "./functions/api.js",
   "scripts": {
     "build":"netlify deploy --prod"
   },
