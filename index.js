@@ -1,15 +1,8 @@
 const express = require("express");
-// production
-
-// const serverless=require('serverless-http');
-
-// const router =express.Router();
-
 
 const bodyParser = require("body-parser");
 
-
-const PORT = 8000;
+const PORT =process.env.PORT  || 8000;
 
 const db = require("./config/mongoose");
 
@@ -36,9 +29,7 @@ app.set("views", "./views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 app.use("/", require("./routes"));
-
 
 app.listen( PORT, function (err) {
   if (!err) {
