@@ -2,9 +2,9 @@
   "name": "issue-tracker",
   "version": "1.0.0",
   "description": "",
-  "main": "./functions/api.js",
+  "main": "./src/api.js",
   "scripts": {
-    "build":"netlify deploy --prod"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",

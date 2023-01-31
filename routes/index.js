@@ -12,6 +12,5 @@ router.use("/project", require("./project"));
 
 router.use("/issue", require("./issue"));
 
-router.use('/.netlify/functions/api' , router);
 
 module.exports = router;
